@@ -1,61 +1,23 @@
 openapi: 3.0.0
 info:
-  title: User API
+  title: Sample API
+  description: API documentation
   version: 1.0.0
-  description: Tài liệu API cho hệ thống người dùng.
-servers:
-  - url: https://api.example.com
 paths:
   /users:
     get:
-      summary: Lấy danh sách người dùng
+      summary: Get all users
       responses:
         '200':
-          description: OK
+          description: A list of users
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/User'
-    post:
-      summary: Tạo người dùng mới
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/User'
-      responses:
-        '201':
-          description: Created
-  /users/{id}:
-    get:
-      summary: Lấy chi tiết người dùng
-      parameters:
-        - in: path
-          name: id
-          required: true
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-components:
-  schemas:
-    User:
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 1
-        name:
-          type: string
-          example: Nguyễn Văn A
-        email:
-          type: string
-          example: user@example.com
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    name:
+                      type: string
